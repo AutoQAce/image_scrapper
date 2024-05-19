@@ -1,0 +1,10 @@
+requests
+bs4
+selenium
+webdriver-manager
+flask
+urllib3
+flask_cors
+pymongo
+python-dotenv
+flask_pymongo
