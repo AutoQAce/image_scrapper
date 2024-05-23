@@ -1,4 +1,4 @@
-# Image Scraping Flask App with MongoDB
+# ImageScrapper with MongoDB & Docker
 
 This Flask application allows you to search for images using Google Images and store them in a MongoDB database. It leverages web scraping techniques with error handling and logging for robust operation.
 
