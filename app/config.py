@@ -8,7 +8,7 @@ load_dotenv(dotenv_path=Path("./.env"))
 
 class Config:
     """Base configuration class"""
-    MONGO_URI=f"mongodb+srv://{os.environ.get('DB_USERNAME')}:{os.environ.get('DB_PASSWORD')}@cluster0.qm6mxz1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    MONGO_URI=f"mongodb+srv://{os.getenv('DB_USERNAME')}:{os.getenv('DB_PASSWORD')}@cluster0.qm6mxz1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     DATABASE_NAME = "image_scrap"
     COLLECTION_NAME = "image_scrap_data"
 

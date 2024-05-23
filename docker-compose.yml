@@ -1,0 +1,12 @@
+# use of docker-compose file is to do application orchestration. Some of the typical use cases are Development, testing, staging..
+version: '3.8'
+services: # This section define the different containters (services) that make up our application.
+  app: # The name of the flask service. can pick up any name you like.
+    build: . # To instruct the docker compose to build docker image for the web service. '.' means docker and dockerfiles are in same directory.
+    env_file:
+      - .env  # Load database credentials from .env file. This will inform dockor compose to load environment variables.
+    ports :
+      - "5000:5000" #expore port 5000 pf the container to port 5000 on host machine. Necessary to run flask app on http://localhost:5000.
+    volumes:
+      - ./:/app # mount the directory from your host/local machine into the container.
+    working_dir: /app # setting the working directory to the /app directory where our whole flask is deployed from Docker file.

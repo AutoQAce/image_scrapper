@@ -7,10 +7,8 @@ This Flask application allows you to search for images using Google Images and s
 - [Project Structure](#project-structure)
 - [Configuration](#configuration)
 - [Environment Variables](#environment-variables)
-- [Running the App](#running-the-app)
-- [Dependencies](#dependencies)
+- [Running the App in Docker Container](#Running-the-App-in-Docker-Container)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Functionality
 
@@ -34,7 +32,7 @@ This Flask application allows you to search for images using Google Images and s
 
 ## Project Structure
 
-project_name/
+Imagescrapper/
 ├── app/
 │   ├── init.py        # Application factory function
 │   ├── config.py         # Configuration settings
@@ -79,35 +77,23 @@ You can customize these configurations in `config.py` to suit your needs.
 To run the app, you'll need to set the following environment variables in a `.env` file at the project root:
 
 
-* **DB_USERNAME:** A random string used for cryptographic security in your application (e.g., session management).
-* **DB_PASSWORD:** The connection string to your MongoDB database (including username, password, and database name).
+* **DB_USERNAME:** Database username for the application.
+* **DB_PASSWORD:** Database password for the application.
 
 
-## Running the App
+## Running the App in Docker Container
 
-The application can be run in either testing or production configuration modes. To run the app in the default production configuration:
+The application can be run in either testing or production configuration modes. To run the app in the default production configuration 
 
-flask run 
-For testing configuration, you can specify it using the -c or --config option:
+For testing configuration, you can specify it in Dockerfile where you have to modify the **Dockerfile**(line no 19) in root directory of the project.
+RUN export FLASK_CONFIG=<env>. Default is set to production.
+
 ```bash
-Bash
-flask run -c testing  # or
-flask run --config testing
+docker-compose build
+docker-compose up
 ```
-Alternatively, you can set the FLASK_CONFIG environment variable:
-```
-Bash
-export FLASK_CONFIG=testing  # Linux/macOS
-set FLASK_CONFIG=testing     # Windows
-```
-## Dependencies
-The project requires the following Python packages, which can be installed using pip:
-```
-Bash
-pip install -r requirements.txt
-```
+
 ## Contributing
 Feel free to fork this repository and submit pull requests if you'd like to contribute.
-
 
 Let me know if you'd like me to add or modify any sections of the `README.md`!

@@ -21,7 +21,7 @@ def index():
             model= ImageScraperModel()
             model.insert_image_data(img_data=img_data)
             logging.info("Images scraped and saved successfully.")
-            return render_template("result.html")
+            return "Images are downloaded and uploaded successfully."
         except Exception as e:
             logging.error(f"Error during scraping: {e}")
             return "Something went wrong"

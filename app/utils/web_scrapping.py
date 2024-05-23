@@ -210,9 +210,14 @@ def get_downloads_folder():
         str: The absolute path to the "downloads" folder.
     """
     try:
-        downloads_folder=Path("./../../downloads")
+        # Get the absolute path of the project's root directory
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-        if not downloads_folder.exists():
+        # Create the 'logs' directory if it doesn't exist
+        downloads_folder = os.path.join(project_root, 'downloads')
+        os.makedirs(downloads_folder, exist_ok=True)
+
+        if not Path(downloads_folder).exists():
             os.makedirs(downloads_folder)
             logging.info(f"Created 'downloads' folder at {downloads_folder}")
         else:
